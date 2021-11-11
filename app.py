@@ -68,7 +68,7 @@ def getResponse(ints, intents_json, sentence):
 
     url = 'http://testexample.imgateway.net/api/searchall/'
 
-    r = requests.get(url, auth=HTTPBasicAuth('student', 'stu@!21('))
+    r = requests.get(url, auth=HTTPBasicAuth('username', 'password'))
     result_json = r.json()
 
     for p in result_json:
@@ -81,10 +81,10 @@ def getResponse(ints, intents_json, sentence):
                         result = {"basic": random.choice(i['responses'])}
 
     if newword:
-        # inter_url = 'http://testexample.imgateway.net/api/v1/ingredients/ingredientNames/' + newword + '/223'
-        inter_url = 'http://13.238.230.40:5001/ingredients?ingredientName=' + newword
-        # request = requests.get(inter_url, auth=HTTPBasicAuth('student', 'stu@!21('))
-        request = requests.post(inter_url)
+        inter_url = 'http://testexample.imgateway.net/api/v1/ingredients/ingredientNames/' + newword + '/223'
+        # inter_url = 'http://13.238.230.40:5001/ingredients?ingredientName=' + newword
+        request = requests.get(inter_url, auth=HTTPBasicAuth('username', 'password'))
+        # request = requests.post(inter_url)
         med = request.text
         result = {"medical": med}
 
